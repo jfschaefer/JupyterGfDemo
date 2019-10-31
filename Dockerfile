@@ -14,7 +14,7 @@ RUN apt-get -y --no-install-recommends install libtinfo5
 RUN dpkg -i gf_3.10-2_amd64.deb
 
 ARG NB_USER
-ARG NB_UID
+ARG NB_UID="1000"
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
@@ -22,6 +22,6 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
-COPY --chown=${NB_UID} . ${HOME}
+COPY --chown=1000 . ${HOME}
 WORKDIR ${HOME}
 USER ${USER}
