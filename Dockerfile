@@ -6,11 +6,12 @@ RUN pip install --no-cache --upgrade pip
 RUN pip install gf-kernel
 RUN python -m gf_kernel.install
 RUN apt-get update 
-RUN apt-get install -y --no-install-recommends apt-utils
+RUN apt-get -y --no-install-recommends install apt-utils
 RUN apt-get -y --no-install-recommends install wget
-RUN wget https://www.grammaticalframework.org/download/gf_3.10-2_amd64.deb
 RUN apt-get -y --no-install-recommends install libghc-haskeline-dev
 RUN apt-get -y --no-install-recommends install libtinfo5
+RUN apt-get -y --no-install-recommends install graphviz
+RUN wget https://www.grammaticalframework.org/download/gf_3.10-2_amd64.deb
 RUN dpkg -i gf_3.10-2_amd64.deb
 
 ARG NB_USER
