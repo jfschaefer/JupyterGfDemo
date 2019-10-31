@@ -22,5 +22,6 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
+COPY --chown=${NB_USER} . ${HOME}
 WORKDIR ${HOME}
 USER ${USER}
